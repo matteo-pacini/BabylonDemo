@@ -1,5 +1,7 @@
 # BabylonDemo
 
+![demo](./demo.gif)
+
 ## Dependencies
 
 Depedencies are managed through **Carthage**.
