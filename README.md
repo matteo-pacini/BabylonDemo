@@ -2,6 +2,12 @@
 
 ![demo](./demo.gif)
 
+**Note**
+
+To record the demo, the **NetworkLinkConditioner** has been used (to slow down the network calls), with the following profile:
+
+![networklinkconditioner](./networklinkconditioner.png)
+
 ## Dependencies
 
 Depedencies are managed through **Carthage**.
