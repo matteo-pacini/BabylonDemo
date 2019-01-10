@@ -4,9 +4,9 @@ import Foundation
 public final class CachedWebservice: WebserviceType {
     
     private let decorated: WebserviceType
-    private let storage: StorageType
+    private let storage: KeyValueCodableStorageType
     
-    public init(decorated: WebserviceType, storage: StorageType) {
+    public init(decorated: WebserviceType, storage: KeyValueCodableStorageType) {
         self.decorated = decorated
         self.storage = storage
     }

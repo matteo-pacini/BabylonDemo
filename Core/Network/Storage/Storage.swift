@@ -1,12 +1,12 @@
 import Foundation
 
-public protocol StorageType {
+public protocol KeyValueCodableStorageType {
     func set<T:Encodable>(_ value: T?, forKey key: String) throws
     func value<T:Decodable>(forKey key: String) -> T?
     func removeAll()
 }
 
-extension UserDefaults: StorageType {
+extension UserDefaults: KeyValueCodableStorageType {
     
     public func set<T>(_ value: T?, forKey key: String) throws where T: Encodable {
         let archiver = NSKeyedArchiver(requiringSecureCoding: false)
