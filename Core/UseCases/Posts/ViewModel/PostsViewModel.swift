@@ -30,11 +30,12 @@ final class PostsViewModel: PostsViewModelType, PostsViewModelOutputs {
     
     private let disposeBag = DisposeBag()
     
-    public init(postRepository: PostRepositoryType) {
+    public init(postRepository: PostRepositoryType,
+                localizer: StringLocalizing = Localizer()) {
         
         self.postRepository = postRepository
         
-        title = Driver.just("Posts")
+        title = Driver.just(localizer.localize("posts.title"))
         
         let postEvents = postRepository.getPosts()
             .asObservable()
@@ -48,7 +49,7 @@ final class PostsViewModel: PostsViewModelType, PostsViewModelOutputs {
         }
         
         progressHud = postEvents.map { _ in return MBProgressHUDModel.hidden }
-            .startWith(MBProgressHUDModel(message: "Loading posts..."))
+            .startWith(MBProgressHUDModel(message: localizer.localize("posts.loading")))
             .asDriver(onErrorJustReturn: .hidden)
         
         additionalInit(posts)

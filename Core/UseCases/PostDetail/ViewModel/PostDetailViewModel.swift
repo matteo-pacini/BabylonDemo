@@ -30,13 +30,14 @@ final class PostDetailViewModel: PostDetailViewModelType, PostDetailViewModelOut
     
     init(post: Post,
          userRepository: UserRepositoryType,
-         commentRepository: CommentRepositoryType) {
+         commentRepository: CommentRepositoryType,
+         localizer: StringLocalizing = Localizer()) {
         
         self.post = post
         self.userRepository = userRepository
         self.commentRepository = commentRepository
         
-        title = Driver.just("Post n. \(post.id)")
+        title = Driver.just(String(format: localizer.localize("posts.detail.title"), "\(post.id)"))
         
         let userEvents = userRepository.getUsers()
             .asObservable()
@@ -63,22 +64,22 @@ final class PostDetailViewModel: PostDetailViewModelType, PostDetailViewModelOut
         }
         
         author = users.map { $0.filter { $0.id == post.userId } }
-            .map { $0.first?.username ?? "Unknown user" }
-            .startWith("Loading...")
-            .asDriver(onErrorJustReturn: "Unknown user")
+            .map { $0.first?.username ?? localizer.localize("posts.detail.author.error") }
+            .startWith(localizer.localize("posts.detail.loading"))
+            .asDriver(onErrorJustReturn: localizer.localize("posts.detail.author.error"))
         
         numberOfComments = comments.map { $0.filter { $0.postId == post.id } }
-            .map { "\($0.count) comments" }
-            .startWith("Loading...")
-            .asDriver(onErrorJustReturn: "0 comments")
+            .map { String(format: localizer.localize("posts.detail.comments"), "\($0.count)") }
+            .startWith(localizer.localize("posts.detail.loading"))
+            .asDriver(onErrorJustReturn: localizer.localize("posts.detail.comments.error"))
         
         description = Driver.just(post.title)
         
         progressHud = Observable.merge(
-                userEvents.map { _ in return MBProgressHUDModel(message: "Loading comments...") },
+                userEvents.map { _ in return MBProgressHUDModel(message: localizer.localize("posts.detail.comments.loading")) },
                 commentEvents.map { _ in return MBProgressHUDModel.hidden }
             )
-            .startWith(MBProgressHUDModel(message: "Loading users..."))
+            .startWith(MBProgressHUDModel(message: localizer.localize("posts.detail.users.loading")))
             .asDriver(onErrorJustReturn: .hidden)
         
     }

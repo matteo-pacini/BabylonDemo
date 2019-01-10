@@ -31,6 +31,8 @@
 		95671C9521E65B5E00D481F2 /* PostDetailViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95671C9421E65B5E00D481F2 /* PostDetailViewModelMock.swift */; };
 		95671C9721E65BBE00D481F2 /* PostDetailViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95671C9621E65BBE00D481F2 /* PostDetailViewModelSpec.swift */; };
 		95671C9A21E65D5700D481F2 /* PostDetailViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95671C9921E65D5700D481F2 /* PostDetailViewControllerSpec.swift */; };
+		95945CC021E74B9400C7DC37 /* Localizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95945CBF21E74B9400C7DC37 /* Localizer.swift */; };
+		95945CC321E74D3500C7DC37 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 95945CC121E74CA400C7DC37 /* Localizable.strings */; };
 		95BF0CFA21E296C7002CB689 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BF0CF921E296C7002CB689 /* AppDelegate.swift */; };
 		95BF0D0121E296C8002CB689 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95BF0D0021E296C8002CB689 /* Assets.xcassets */; };
 		95BF0D0421E296C8002CB689 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95BF0D0221E296C8002CB689 /* LaunchScreen.storyboard */; };
@@ -146,6 +148,8 @@
 		95671C9421E65B5E00D481F2 /* PostDetailViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewModelMock.swift; sourceTree = "<group>"; };
 		95671C9621E65BBE00D481F2 /* PostDetailViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewModelSpec.swift; sourceTree = "<group>"; };
 		95671C9921E65D5700D481F2 /* PostDetailViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewControllerSpec.swift; sourceTree = "<group>"; };
+		95945CBF21E74B9400C7DC37 /* Localizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizer.swift; sourceTree = "<group>"; };
+		95945CC121E74CA400C7DC37 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		95BF0CF621E296C7002CB689 /* BabylonDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BabylonDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BF0CF921E296C7002CB689 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95BF0D0021E296C8002CB689 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -297,6 +301,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		95945CBE21E74B7800C7DC37 /* Localizing */ = {
+			isa = PBXGroup;
+			children = (
+				95945CBF21E74B9400C7DC37 /* Localizer.swift */,
+			);
+			path = Localizing;
+			sourceTree = "<group>";
+		};
 		95BF0CED21E296C7002CB689 = {
 			isa = PBXGroup;
 			children = (
@@ -332,7 +344,9 @@
 		95BF0D1121E296FD002CB689 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				95945CC121E74CA400C7DC37 /* Localizable.strings */,
 				95C9EF3721E50A5800894947 /* Result.swift */,
+				95945CBE21E74B7800C7DC37 /* Localizing */,
 				95C9EF3921E50CDC00894947 /* Network */,
 				95BF0D5721E2A2C8002CB689 /* Repository */,
 				95BF0D4921E29F51002CB689 /* Extensions */,
@@ -698,6 +712,7 @@
 			files = (
 				95BF0D4421E29B7D002CB689 /* Posts.storyboard in Resources */,
 				95EB2DC621E5EC5100D5EE54 /* PostDetail.storyboard in Resources */,
+				95945CC321E74D3500C7DC37 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -758,6 +773,7 @@
 				95C9EF3621E50A2C00894947 /* PostRepository.swift in Sources */,
 				95C9EF4621E511BB00894947 /* URLRequest+Resource.swift in Sources */,
 				95C9EF5821E54ADB00894947 /* UIVIewController+MBProgressHUD.swift in Sources */,
+				95945CC021E74B9400C7DC37 /* Localizer.swift in Sources */,
 				95BF0D4221E29B58002CB689 /* PostsViewController.swift in Sources */,
 				95BF0D4621E29BA0002CB689 /* PostsCoordinator.swift in Sources */,
 				95BF0D4821E29C51002CB689 /* PostsViewModel.swift in Sources */,

@@ -1,0 +1,10 @@
+"posts.title" = "Posts";
+"posts.loading" = "Loading posts...";
+"posts.detail.loading" = "Loading...";
+"posts.detail.title" = "Post n. %@";
+"posts.detail.author.loading" = "Loading author...";
+"posts.detail.author.error" = "Unknown author";
+"posts.detail.comments" = "%@ comments";
+"posts.detail.comments.loading" = "Loading comments...";
+"posts.detail.comments.error" = "0 comments";
+"posts.detail.users.loading" = "Loading users...";
