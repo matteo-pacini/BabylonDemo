@@ -2,6 +2,9 @@
 
 ![demo](./demo.gif)
 
+**Spec**
+https://github.com/Babylonpartners/iOS-Interview-Demo/blob/master/demo.md
+
 **Note**
 
 To record the demo, the **NetworkLinkConditioner** has been used (to slow down the network calls), with the following profile:
