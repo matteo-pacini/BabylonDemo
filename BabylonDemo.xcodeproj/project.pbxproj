@@ -31,6 +31,7 @@
 		95671C9521E65B5E00D481F2 /* PostDetailViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95671C9421E65B5E00D481F2 /* PostDetailViewModelMock.swift */; };
 		95671C9721E65BBE00D481F2 /* PostDetailViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95671C9621E65BBE00D481F2 /* PostDetailViewModelSpec.swift */; };
 		95671C9A21E65D5700D481F2 /* PostDetailViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95671C9921E65D5700D481F2 /* PostDetailViewControllerSpec.swift */; };
+		9576C028230BE295000FDB45 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9576C027230BE295000FDB45 /* RxRelay.framework */; };
 		95945CC021E74B9400C7DC37 /* Localizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95945CBF21E74B9400C7DC37 /* Localizer.swift */; };
 		95945CC321E74D3500C7DC37 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 95945CC121E74CA400C7DC37 /* Localizable.strings */; };
 		95BF0CFA21E296C7002CB689 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BF0CF921E296C7002CB689 /* AppDelegate.swift */; };
@@ -148,6 +149,7 @@
 		95671C9421E65B5E00D481F2 /* PostDetailViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewModelMock.swift; sourceTree = "<group>"; };
 		95671C9621E65BBE00D481F2 /* PostDetailViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewModelSpec.swift; sourceTree = "<group>"; };
 		95671C9921E65D5700D481F2 /* PostDetailViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewControllerSpec.swift; sourceTree = "<group>"; };
+		9576C027230BE295000FDB45 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 		95945CBF21E74B9400C7DC37 /* Localizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizer.swift; sourceTree = "<group>"; };
 		95945CC121E74CA400C7DC37 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		95BF0CF621E296C7002CB689 /* BabylonDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BabylonDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,6 +213,7 @@
 				95C9EF3F21E50E4900894947 /* RxCocoa.framework in Frameworks */,
 				95C9EF4021E50E4900894947 /* RxSwift.framework in Frameworks */,
 				95C9EF5621E54A9C00894947 /* MBProgressHUD.framework in Frameworks */,
+				9576C028230BE295000FDB45 /* RxRelay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,6 +538,7 @@
 		95C9EF3C21E50E4900894947 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9576C027230BE295000FDB45 /* RxRelay.framework */,
 				953A070321E610B600C2D84E /* Quick.framework */,
 				953A070121E610B400C2D84E /* Nimble.framework */,
 				953A06FF21E60F7000C2D84E /* RxTest.framework */,
@@ -737,6 +741,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/MBProgressHUD.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
@@ -745,6 +750,7 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/MBProgressHUD.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxRelay.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
