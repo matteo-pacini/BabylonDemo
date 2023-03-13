@@ -1,7 +1,7 @@
 import Foundation
 
 public protocol WebserviceType {
-    func load<T>(resource: Resource<T>, completion: @escaping (Result<T>) -> Void) where T: Codable
+    func load<T>(resource: Resource<T>, completion: @escaping (Result<T, Error>) -> Void) where T: Codable
     func clear()
 }
 
@@ -15,10 +15,10 @@ public final class Webservice: WebserviceType {
         self.session = URLSession(configuration: URLSessionConfiguration.default)
     }
     
-    public func load<T>(resource: Resource<T>, completion: @escaping (Result<T>) -> Void) where T: Codable {
+    public func load<T>(resource: Resource<T>, completion: @escaping (Result<T, Swift.Error>) -> Void) where T: Codable {
         let request = URLRequest(resource: resource, baseURL: baseURL)
         session.dataTask(with: request) { data, response, error in
-            guard let data = data else {
+            guard let data else {
                 completion(.failure(Webservice.Error.local(error!.localizedDescription)))
                 return
             }

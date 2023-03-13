@@ -3,12 +3,12 @@ import RxSwift
 import RxCocoa
 
 public protocol UserRepositoryType {
-    func getUsers(completion: @escaping (Result<[User]>) -> Void)
+    func getUsers(completion: @escaping (Result<[User], Error>) -> Void)
 }
 
 extension Repository {
     
-    public func getUsers(completion: @escaping (Result<[User]>) -> Void) {
+    public func getUsers(completion: @escaping (Result<[User], Error>) -> Void) {
         let resource = Resource<[User]>(endpoint: "/users")
         self.webservice.load(resource: resource, completion: completion)
     }
@@ -25,7 +25,7 @@ extension UserRepositoryType /* Rx */ {
                 case .success(let result):
                     single(.success(result))
                 case .failure(let error):
-                    single(.error(error))
+                    single(.failure(error))
                 }
             }
             return disposable

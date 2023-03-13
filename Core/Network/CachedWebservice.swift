@@ -11,7 +11,7 @@ public final class CachedWebservice: WebserviceType {
         self.storage = storage
     }
     
-    public func load<T>(resource: Resource<T>, completion: @escaping (Result<T>) -> Void) where T: Codable {
+    public func load<T>(resource: Resource<T>, completion: @escaping (Result<T, Error>) -> Void) where T: Codable {
         let key = resource.endpoint
         guard let stored = storage.value(forKey: key) as T? else {
             self.decorated.load(resource: resource) { result in

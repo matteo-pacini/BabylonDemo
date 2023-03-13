@@ -3,12 +3,12 @@ import RxSwift
 import RxCocoa
 
 public protocol CommentRepositoryType {
-    func getComments(completion: @escaping (Result<[Comment]>) -> Void)
+    func getComments(completion: @escaping (Result<[Comment], Error>) -> Void)
 }
 
 extension Repository {
     
-    public func getComments(completion: @escaping (Result<[Comment]>) -> Void) {
+    public func getComments(completion: @escaping (Result<[Comment], Error>) -> Void) {
         let resource = Resource<[Comment]>(endpoint: "/comments")
         self.webservice.load(resource: resource, completion: completion)
     }
@@ -25,7 +25,7 @@ extension CommentRepositoryType /* Rx */ {
                 case .success(let result):
                     single(.success(result))
                 case .failure(let error):
-                    single(.error(error))
+                    single(.failure(error))
                 }
             }
             return disposable

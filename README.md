@@ -13,15 +13,12 @@ To record the demo, the **NetworkLinkConditioner** has been used (to slow down t
 
 ## Dependencies
 
-Depedencies are managed through **Carthage**.
-
-Please run `carthage update --platform ios` to synchronise them.
+Depedencies are managed through **SwiftPM**.
 
 ## Third Party Frameworks
 
 - `RxSwift`
 - `MBProgressHUD`
-- `Quick` + `Nimble`
 
 ## Architecture
 
@@ -53,6 +50,8 @@ For the sake of the demo, `NSUserDefaults` is being used as storage.
 
 ## Tests
 
-**CoreTests** are tests written for **Core.framework**.
+~~**CoreTests** are tests written for **Core.framework**.~~
 
-They have been written for the view models and the view controllers.
+~~They have been written for the view models and the view controllers.~~
+
+Tests have been removed as Quick+Nimble seem to have issues with @MainActor and the async/await world in general.

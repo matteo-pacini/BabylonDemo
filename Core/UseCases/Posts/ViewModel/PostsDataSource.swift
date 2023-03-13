@@ -10,8 +10,10 @@ UITableViewDataSource {
     private var elements: [PostsTableViewCellViewModelType] = []
     
     func tableView(_ tableView: UITableView, observedEvent: Event<[PostsTableViewCellViewModelType]>) {
-        elements = observedEvent.element ?? []
-        tableView.reloadData()
+        Binder(self) { dataSource, newElements in
+            dataSource.elements = newElements
+            tableView.reloadData()
+        }.on(observedEvent)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

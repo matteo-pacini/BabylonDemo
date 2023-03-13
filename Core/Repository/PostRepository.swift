@@ -3,12 +3,12 @@ import RxSwift
 import RxCocoa
 
 public protocol PostRepositoryType {
-    func getPosts(completion: @escaping (Result<[Post]>) -> Void)
+    func getPosts(completion: @escaping (Result<[Post], Error>) -> Void)
 }
 
 extension Repository {
     
-    public func getPosts(completion: @escaping (Result<[Post]>) -> Void) {
+    public func getPosts(completion: @escaping (Result<[Post], Error>) -> Void) {
         let resource = Resource<[Post]>(endpoint: "/posts")
         self.webservice.load(resource: resource, completion: completion)
     }
@@ -25,7 +25,7 @@ extension PostRepositoryType /* Rx */ {
                 case .success(let result):
                     single(.success(result))
                 case .failure(let error):
-                    single(.error(error))
+                    single(.failure(error))
                 }
             }
             return disposable
