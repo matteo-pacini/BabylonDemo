@@ -1,57 +1,47 @@
-# BabylonDemo
+# BabylonDemo 🚀
 
 ![demo](./demo.gif)
 
-**Spec**
+## Specification 📄
+
+For detailed specifications, please refer to the following link:
 https://github.com/Babylonpartners/iOS-Interview-Demo/blob/master/demo.md
 
-**Note**
+## Note on Demo Recording 🎥
 
-To record the demo, the **NetworkLinkConditioner** has been used (to slow down the network calls), with the following profile:
+To record the demo, the **NetworkLinkConditioner** has been employed to simulate slower network conditions using the profile displayed below:
 
 ![networklinkconditioner](./networklinkconditioner.png)
 
-## Dependencies
+## Dependencies 📦
 
-Depedencies are managed through **SwiftPM**.
+Dependencies in this project are managed through **Swift Package Manager (SwiftPM)**.
 
-## Third Party Frameworks
+## Third-Party Frameworks 🛠️
+
+The following third-party frameworks have been incorporated into the project:
 
 - `RxSwift`
 - `MBProgressHUD`
 
-## Architecture
+## Architecture 🏗️
 
-### MVVM-C
+### MVVM-C (Model-View-ViewModel-Coordinator)
 
-**BabylonDemo** (app) -> links to -> **Core.framework** (which contains 99% of the app)
+The **BabylonDemo** app relies on the **Core.framework**, which encompasses 99% of the application's functionality.
 
-`AppCoordinator` starts the `PostsCoordinator` on the key window.
+The `AppCoordinator` initializes the `PostsCoordinator` on the key window. The `PostsCoordinator` embeds a `PostsViewController` within a `UINavigationController` and sets it as the root view controller of the key window.
 
-`PostsCoordinator` embeds a `PostsViewController` inside a `UINavigationController`,
-and makes it the root view controller of the key window.
+The `PostsViewModel` retrieves the posts displayed in the table view. When a post is selected, the `PostsTableViewCellViewModel` informs the `PostsViewModel` through delegation. In turn, the `PostsViewModel` notifies the `PostsCoordinator` via delegation.
 
-`PostsViewModel` fetches the posts, that are then shown in the table view.
+Subsequently, the `PostsCoordinator` initiates the `PostDetailCoordinator` on the navigation controller, pushing the `PostDetailViewController` onto the navigation stack. The `PostDetailViewModel` is responsible for fetching user and comment data.
 
-Once a post is tapped, `PostsTableViewCellViewModel` notifies `PostsViewModel` via delegation.
-`PostsViewModel` then notifies `PostsCoordinator`, again through delegation.
+### Caching 💾
 
-`PostsCoordinator` then starts `PostDetailCoordinator` on the navigation controller.
-It pushes a `PostDetailViewController` on the navigation stack.
+The `CachedWebService` serves as a decorator for any class implementing the `WebserviceType` protocol, offering basic storage capabilities.
 
-`PostDetailViewModel` fetches the users and the comments.
+For the purpose of this demo, `NSUserDefaults` is utilized as the storage solution.
 
-### Caching
+## Tests ⚙️
 
-`CachedWebService` is a decorator for any class that implements `WebserviceType` protocol.
-It provides basic storage capabilities.
-
-For the sake of the demo, `NSUserDefaults` is being used as storage.
-
-## Tests
-
-~~**CoreTests** are tests written for **Core.framework**.~~
-
-~~They have been written for the view models and the view controllers.~~
-
-Tests have been removed as Quick+Nimble seem to have issues with @MainActor and the async/await world in general.
+The original tests, **CoreTests**, were designed for the **Core.framework** and included tests for view models and view controllers. However, they have been removed due to compatibility issues between Quick+Nimble and the @MainActor and async/await functionalities.
